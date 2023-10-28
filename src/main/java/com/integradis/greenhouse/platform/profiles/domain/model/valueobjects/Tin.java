@@ -2,9 +2,9 @@ package com.integradis.greenhouse.platform.profiles.domain.model.valueobjects;
 
 import jakarta.persistence.Embeddable;
 
+
 @Embeddable
-public record TIN(String tin) {
-    public TIN(){
-        this(null);
-    }
+public record Tin(String number) {
+    public Tin(){this(null);}
+
 }

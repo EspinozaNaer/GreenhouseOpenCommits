@@ -2,6 +2,7 @@ package com.integradis.greenhouse.platform.crops.domain.model.aggregates;
 
 import com.integradis.greenhouse.platform.crops.domain.model.entities.*;
 
+import com.integradis.greenhouse.platform.crops.domain.model.valueobjects.CropEntryRecord;
 import com.integradis.greenhouse.platform.crops.domain.model.valueobjects.CropPhase;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -27,37 +28,11 @@ public class Crop extends AbstractAggregateRoot<Crop> {
 
     public CropPhase cropPhase;
 
+    @Embedded
     @Getter
-    @OneToMany
-    @JoinColumn(name = "formula_id")
-    private List<Formula> formula;
-
-    @Getter
-    @OneToMany
-    @JoinColumn(name = "preparation_area_id")
-    private List<PreparationArea> preparationArea;
-
-    @Getter
-    @OneToMany
-    @JoinColumn(name = "bunker_id")
-    private List<Bunker> bunker;
-
-    @Getter
-    @OneToMany
-    @JoinColumn(name = "tunnel_id")
-    private List<Tunnel> tunnel;
-
-    @Getter
-    @OneToMany
-    @JoinColumn(name = "grow_room_id")
-    private List<GrowRoomRecord> growRoomRecord;
+    public CropEntryRecord cropEntryRecord;
 
     public Crop(){
-        formula = new ArrayList<>();
-        preparationArea = new ArrayList<>();
-        bunker = new ArrayList<>();
-        tunnel = new ArrayList<>();
-        growRoomRecord = new ArrayList<>();
     }
 
     public void start(){
