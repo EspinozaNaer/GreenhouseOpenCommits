@@ -12,7 +12,7 @@ import java.util.List;
 public class CropEntryRecord {
 
     @OneToMany(mappedBy = "crop")
-    private List<CropEntry> cropEntryList;
+    public List<CropEntry> cropEntryList;
 
     public CropEntryRecord() {
         this.cropEntryList = new ArrayList<>();

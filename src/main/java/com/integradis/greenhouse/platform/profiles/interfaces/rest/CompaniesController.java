@@ -55,7 +55,7 @@ public class CompaniesController {
         return ResponseEntity.ok(companyResource);
     }
 
-    @GetMapping("/?name={companyName}")
+    @GetMapping("?name={companyName}")
     public ResponseEntity<CompanyResource> getCompanyByCompanyName(@PathVariable String companyName) {
         var getCompanyByNameQuery = new GetCompanyByCompanyNameQuery(new CompanyName(companyName));
         var company = companyQueryService.handle(getCompanyByNameQuery);

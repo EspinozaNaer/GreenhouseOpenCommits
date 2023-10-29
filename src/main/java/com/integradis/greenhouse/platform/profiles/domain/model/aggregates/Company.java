@@ -1,5 +1,6 @@
 package com.integradis.greenhouse.platform.profiles.domain.model.aggregates;
 
+import com.integradis.greenhouse.platform.crops.domain.model.aggregates.Crop;
 import com.integradis.greenhouse.platform.profiles.domain.model.valueobjects.CompanyName;
 import com.integradis.greenhouse.platform.profiles.domain.model.valueobjects.Tin;
 import jakarta.persistence.*;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.AbstractAggregateRoot;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @EntityListeners(AuditingEntityListener.class)
 @Entity
@@ -31,6 +33,9 @@ public class Company extends AbstractAggregateRoot<Company> {
     @LastModifiedDate
     private LocalDate updatedAt;
 
+    @OneToMany(mappedBy = "company")
+    private List<Crop> crops;
+
     public Company() {
 
     }
@@ -38,6 +43,10 @@ public class Company extends AbstractAggregateRoot<Company> {
     public Company(String name, String number){
         this.companyName = new CompanyName(name);
         this.tin = new Tin(number);
+    }
+
+    public Company(Long id){
+        this();
     }
 
     public String getCompanyName(){

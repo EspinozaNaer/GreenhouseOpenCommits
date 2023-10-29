@@ -1,11 +1,16 @@
 package com.integradis.greenhouse.platform.profiles.interfaces.acl;
 
+import com.integradis.greenhouse.platform.profiles.domain.model.aggregates.Company;
 import com.integradis.greenhouse.platform.profiles.domain.model.commands.CreateCompanyCommand;
 import com.integradis.greenhouse.platform.profiles.domain.model.queries.GetCompanyByCompanyNameQuery;
+import com.integradis.greenhouse.platform.profiles.domain.model.queries.GetCompanyByIdQuery;
 import com.integradis.greenhouse.platform.profiles.domain.model.valueobjects.CompanyName;
 import com.integradis.greenhouse.platform.profiles.domain.services.CompanyCommandService;
 import com.integradis.greenhouse.platform.profiles.domain.services.CompanyQueryService;
 import org.springframework.stereotype.Service;
+
+import javax.swing.text.html.Option;
+import java.util.Optional;
 
 @Service
 public class CompaniesContextFacade {
@@ -27,5 +32,10 @@ public class CompaniesContextFacade {
         var company = companyQueryService.handle(getCompanyByCompanyNameQuery);
         if (company.isEmpty()) return 0L;
         return company.get().getId();
+    }
+
+    public Optional<Company> getCompanyById(Long id){
+        var getCompanyByIdQuery = new GetCompanyByIdQuery(id);
+        return companyQueryService.handle(getCompanyByIdQuery);
     }
 }
