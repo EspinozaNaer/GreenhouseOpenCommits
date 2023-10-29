@@ -2,7 +2,7 @@ package com.integradis.greenhouse.platform.profiles.application.internal.command
 
 import com.integradis.greenhouse.platform.profiles.domain.model.aggregates.Company;
 import com.integradis.greenhouse.platform.profiles.domain.model.commands.CreateCompanyCommand;
-import com.integradis.greenhouse.platform.profiles.domain.model.infrastructure.persistence.jpa.repositories.CompanyRepository;
+import com.integradis.greenhouse.platform.profiles.infrastructure.persistence.jpa.repositories.repositories.CompanyRepository;
 import com.integradis.greenhouse.platform.profiles.domain.model.valueobjects.CompanyName;
 import com.integradis.greenhouse.platform.profiles.domain.services.CompanyCommandService;
 import org.springframework.stereotype.Service;
