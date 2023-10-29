@@ -21,10 +21,14 @@ public class Crop extends AbstractAggregateRoot<Crop> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @CreatedDate
+    @Getter
     private Date startDate;
+
     @LastModifiedDate
+    @Getter
     private Date endDate;
 
+    @Getter
     private boolean state;
 
     @Getter

@@ -1,4 +1,6 @@
 package com.integradis.greenhouse.platform.crops.interfaces.rest.resources;
 
-public record CropResource(Long cropId, Long companyId) {
+import java.util.Date;
+
+public record CropResource(Long cropId, String cropPhase, Date startDate, Date endDate, boolean state, Long companyId) {
 }

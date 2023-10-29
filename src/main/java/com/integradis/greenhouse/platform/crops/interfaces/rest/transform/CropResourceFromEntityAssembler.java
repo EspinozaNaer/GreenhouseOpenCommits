@@ -5,6 +5,7 @@ import com.integradis.greenhouse.platform.crops.interfaces.rest.resources.CropRe
 
 public class CropResourceFromEntityAssembler {
     public static CropResource toResourceFromEntity(Crop entity){
-        return new CropResource(entity.getId(), entity.getCompany().getId());
+        return new CropResource(entity.getId(), entity.getCropPhase().name(),
+                entity.getStartDate(), entity.getEndDate(), entity.isState(), entity.getCompany().getId());
     }
 }

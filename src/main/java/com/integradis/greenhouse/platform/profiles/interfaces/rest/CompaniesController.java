@@ -28,6 +28,15 @@ public class CompaniesController {
         this.companyCommandService = companyCommandService;
     }
 
+    @GetMapping("/{companyId}")
+    public ResponseEntity<CompanyResource> getCompanyById(@PathVariable Long companyId) {
+        var getCompanyByIdQuery = new GetCompanyByIdQuery(companyId);
+        var company = companyQueryService.handle(getCompanyByIdQuery);
+        if (company.isEmpty()) return ResponseEntity.badRequest().build();
+        var companyResource = CompanyResourceFromEntityAssembler.toResourceFromEntity(company.get());
+        return ResponseEntity.ok(companyResource);
+    }
+
     @PostMapping
     public ResponseEntity<CompanyResource> createCompany(@RequestBody CreateCompanyResource resource) {
         var createCompanyCommand = CreateCompanyCommandFromResourceAssembler.toCommandFromResource(resource);
@@ -46,21 +55,4 @@ public class CompaniesController {
         return new ResponseEntity<>(companyResource, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{companyId}")
-    public ResponseEntity<CompanyResource> getCompanyById(@PathVariable Long companyId) {
-        var getCompanyByIdQuery = new GetCompanyByIdQuery(companyId);
-        var company = companyQueryService.handle(getCompanyByIdQuery);
-        if (company.isEmpty()) return ResponseEntity.badRequest().build();
-        var companyResource = CompanyResourceFromEntityAssembler.toResourceFromEntity(company.get());
-        return ResponseEntity.ok(companyResource);
-    }
-
-    @GetMapping("?name={companyName}")
-    public ResponseEntity<CompanyResource> getCompanyByCompanyName(@PathVariable String companyName) {
-        var getCompanyByNameQuery = new GetCompanyByCompanyNameQuery(new CompanyName(companyName));
-        var company = companyQueryService.handle(getCompanyByNameQuery);
-        if (company.isEmpty()) return ResponseEntity.badRequest().build();
-        var companyResource = CompanyResourceFromEntityAssembler.toResourceFromEntity(company.get());
-        return ResponseEntity.ok(companyResource);
-    }
 }

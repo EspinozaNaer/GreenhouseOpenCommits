@@ -4,7 +4,6 @@ import com.integradis.greenhouse.platform.profiles.domain.model.aggregates.Compa
 import com.integradis.greenhouse.platform.profiles.interfaces.acl.CompaniesContextFacade;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @Service

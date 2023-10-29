@@ -31,6 +31,7 @@ public class CropEntry {
 
     @ManyToOne
     @Getter
+    @JoinColumn(name="crop_id", nullable = false)
     private Crop crop;
 
     @Getter
