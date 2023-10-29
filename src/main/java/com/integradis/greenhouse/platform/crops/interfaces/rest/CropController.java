@@ -9,7 +9,6 @@ import com.integradis.greenhouse.platform.crops.interfaces.rest.resources.CropRe
 import com.integradis.greenhouse.platform.crops.interfaces.rest.transform.CreateCropCommandFromResourceAssembler;
 import com.integradis.greenhouse.platform.crops.interfaces.rest.transform.CropResourceFromEntityAssembler;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,8 +38,8 @@ public class CropController {
 
     @GetMapping("/company/{companyId}")
     public ResponseEntity<List<CropResource>> getCropsByCompanyId(@PathVariable Long companyId){
-        var getCropsByCompanyName = new GetCropsByCompanyId(companyId);
-        var crops = cropQueryService.handle(getCropsByCompanyName);
+        var getCropsByCompanyId = new GetCropsByCompanyId(companyId);
+        var crops = cropQueryService.handle(getCropsByCompanyId);
         if (crops.isEmpty()) return ResponseEntity.badRequest().build();
         var cropResource = crops.stream().map((CropResourceFromEntityAssembler::toResourceFromEntity)).toList();
         return ResponseEntity.ok(cropResource);

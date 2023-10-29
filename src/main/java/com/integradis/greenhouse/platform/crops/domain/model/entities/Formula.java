@@ -10,13 +10,28 @@ import java.util.Date;
 @Entity
 public class Formula extends CropEntry {
 
+    @Getter
     private int hay;
+
+    @Getter
     private int corn;
+
+    @Getter
     private int guano;
+
+    @Getter
     private float cottonSeedCake;
+
+    @Getter
     private int soybeanMeal;
+
+    @Getter
     private float gypsum;
+
+    @Getter
     private int urea;
+
+    @Getter
     private int ammoniumSulphate;
 
     public Formula(){
