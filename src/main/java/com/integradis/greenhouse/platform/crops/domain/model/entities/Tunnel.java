@@ -10,14 +10,23 @@ import java.util.Date;
 
 @Entity
 public class Tunnel extends CropEntry {
+    @Getter
     private int thermocoupleOne;
+    @Getter
     private int thermocoupleTwo;
+    @Getter
     private int thermocoupleThree;
+    @Getter
     private float averageThermocouple;
+    @Getter
     private int motorFrequency;
+    @Getter
     private float roomTemperature;
+    @Getter
     private int freshAir;
+    @Getter
     private int recirculation;
+    @Getter
     private String comment;
 
     public Tunnel() {

@@ -1,6 +1,7 @@
 package com.integradis.greenhouse.platform.profiles.interfaces.rest;
 
 import com.integradis.greenhouse.platform.profiles.domain.model.queries.GetEmployeeByIdQuery;
+import com.integradis.greenhouse.platform.profiles.domain.model.queries.GetEmployeesByCompanyIdQuery;
 import com.integradis.greenhouse.platform.profiles.domain.services.EmployeeCommandService;
 import com.integradis.greenhouse.platform.profiles.domain.services.EmployeeQueryService;
 import com.integradis.greenhouse.platform.profiles.interfaces.rest.resources.CreateEmployeeResource;
@@ -12,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value ="/api/v1/employees", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -50,6 +53,17 @@ public class EmployeeController {
             return ResponseEntity.notFound().build();
         }
         var employeeResource = EmployeeResourceFromEntityAssembler.toResourceFromEntity(employee.get());
+        return ResponseEntity.ok(employeeResource);
+    }
+
+    @GetMapping("/company/{companyId}")
+    public ResponseEntity<List<EmployeeResource>> getEmployeeByCompanyId(@PathVariable Long companyId) {
+        var getEmployeeByCompanyIdQuery = new GetEmployeesByCompanyIdQuery(companyId);
+        var employee = employeeQueryService.handle(getEmployeeByCompanyIdQuery);
+        if (employee.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        var employeeResource = employee.stream().map(EmployeeResourceFromEntityAssembler::toResourceFromEntity).toList();
         return ResponseEntity.ok(employeeResource);
     }
 }
