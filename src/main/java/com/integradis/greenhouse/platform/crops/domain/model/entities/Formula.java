@@ -38,6 +38,11 @@ public class Formula extends CropEntry {
         this.cropPhase = CropPhase.FORMULA;
     }
 
+    public Formula (Crop crop, String author, int hay, int corn, int guano, float cottonSeedCake, int soybeanMeal,
+                    float gypsum, int urea, int ammoniumSulphate){
+
+    }
+
     public Formula(String author, Long nextItemId){
         super(author, nextItemId);
         this.cropPhase = CropPhase.FORMULA;

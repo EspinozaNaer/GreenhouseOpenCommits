@@ -12,5 +12,6 @@ public record FormulaResource(
         int soybeanMeal,
         float gypsum,
         int urea,
-        int ammoniumSulphate) {
+        int ammoniumSulphate,
+        Long cropId) {
 }
