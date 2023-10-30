@@ -9,7 +9,7 @@ public class EmployeeResourceFromEntityAssembler {
             entity.getId(),
             entity.getFullName(),
             entity.getEmail(),
-            entity.getCompany()
+            entity.getCompany().getId()
         );
     }
 }

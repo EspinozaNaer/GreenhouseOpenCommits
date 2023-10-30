@@ -9,7 +9,7 @@ public class CreateEmployeeCommandFromResourceAssembler {
             resource.firstName(),
             resource.lastName(),
             resource.email(),
-            resource.company()
+            resource.companyId()
         );
     }
 }
