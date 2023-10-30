@@ -9,11 +9,17 @@ import java.util.Date;
 
 @Entity
 public class Bunker extends CropEntry{
+    @Getter
     private int thermocoupleOne;
+    @Getter
     private int thermocoupleTwo;
+    @Getter
     private int thermocoupleThree;
+    @Getter
     private float averageThermocouple;
+    @Getter
     private int motorFrequency;
+    @Getter
     private String comment;
 
     public Bunker() {
