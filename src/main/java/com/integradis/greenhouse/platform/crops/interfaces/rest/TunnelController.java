@@ -23,7 +23,7 @@ public class TunnelController {
         this.tunnelQueryService = tunnelQueryService;
     }
 
-    @GetMapping("{cropId}/tunnel")
+    @GetMapping("{cropId}")
     public ResponseEntity<List<TunnelResource>> getTunnelEntriesByCropId(@PathVariable Long cropId){
         var getTunnelEntriesByCropId = new GetTunnelEntriesByCropIdQuery(cropId);
         var entries = tunnelQueryService.handle(getTunnelEntriesByCropId);

@@ -4,6 +4,7 @@ import com.integradis.greenhouse.platform.crops.domain.exceptions.CropNotFoundEx
 import com.integradis.greenhouse.platform.crops.domain.model.aggregates.Crop;
 import com.integradis.greenhouse.platform.crops.domain.model.commands.CreateFormulaCommand;
 import com.integradis.greenhouse.platform.crops.domain.model.entities.Formula;
+import com.integradis.greenhouse.platform.crops.domain.model.queries.GetCropByIdQuery;
 import com.integradis.greenhouse.platform.crops.domain.services.FormulaCommandService;
 import com.integradis.greenhouse.platform.crops.infrastructure.persistence.jpa.repositories.CropRepository;
 import com.integradis.greenhouse.platform.crops.infrastructure.persistence.jpa.repositories.FormulaRepository;
@@ -23,9 +24,9 @@ public class FormulaCommandServiceImpl implements FormulaCommandService {
 
     @Override
     public Long handle(CreateFormulaCommand command) {
-        Crop crop = cropRepository.findById(command.cropId())
-                .orElseThrow(() -> new CropNotFoundException(command.cropId()));
-        Formula formula = new Formula(crop, command.author(), command.hay(), command.corn(), command.guano(),
+        var getCropByIdQuery = new GetCropByIdQuery(command.cropId());
+        var crop = cropRepository.findById(getCropByIdQuery.id()).orElseThrow(() -> new CropNotFoundException(command.cropId()));
+        var formula = new Formula(crop, command.author(), command.hay(), command.corn(), command.guano(),
         command.cottonSeedCake(), command.soybeanMeal(), command.gypsum(), command.urea(), command.ammoniumSulphate());
         formulaRepository.save(formula);
         return formula.getId();

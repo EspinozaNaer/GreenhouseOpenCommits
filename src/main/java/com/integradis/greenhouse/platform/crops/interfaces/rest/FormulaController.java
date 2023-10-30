@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/crops")
+@RequestMapping("/api/v1/formula")
 @Tag(name = "Formula", description = "Formula Management Endpoints")
 public class FormulaController {
 
@@ -28,7 +28,7 @@ public class FormulaController {
         this.formulaCommandService = formulaCommandService;
     }
 
-    @GetMapping("/{cropId}/formula")
+    @GetMapping("/{cropId}")
     public ResponseEntity<List<FormulaResource>> getFormulaEntriesByCropId(@PathVariable Long cropId){
         var getFormulaEntriesByCropId = new GetFormulaEntriesByCropId(cropId);
         var entries = formulaQueryService.handle(getFormulaEntriesByCropId);
@@ -37,10 +37,9 @@ public class FormulaController {
         return ResponseEntity.ok(formulaResource);
     }
 
-    @PostMapping("/{cropId}/formula")
-    public ResponseEntity<FormulaResource> createFormula(@PathVariable Long cropId,
-                                                         @RequestBody CreateFormulaResource resource){
-        var createFormulaCommand = CreateFormulaCommandFromResourceAssembler.toCommandFromResource(cropId, resource);
+    @PostMapping
+    public ResponseEntity<FormulaResource> createFormula(@RequestBody CreateFormulaResource resource){
+        var createFormulaCommand = CreateFormulaCommandFromResourceAssembler.toCommandFromResource(resource);
         var formulaId = formulaCommandService.handle(createFormulaCommand);
         if (formulaId == 0L){
             return ResponseEntity.badRequest().build();

@@ -33,8 +33,8 @@ public class Tunnel extends CropEntry {
         this.cropPhase = CropPhase.TUNNEL;
     }
 
-    public Tunnel(String author, Long nextItemId) {
-        super(author, nextItemId);
+    public Tunnel(String author, Long nextItemId, Crop crop) {
+        super(author, nextItemId, crop);
         this.cropPhase = CropPhase.TUNNEL;
     }
 }

@@ -49,10 +49,11 @@ public class CropEntry {
         this.nextItemId = null;
     }
 
-    public CropEntry(String author, Long nextItemId){
+    public CropEntry(String author, Long nextItemId, Crop crop){
         this.author = author;
         this.date = LocalDate.now();
         this.nextItemId = nextItemId;
+        this.crop = crop;
         this.day = date.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
     }
 

@@ -1,5 +1,6 @@
 package com.integradis.greenhouse.platform.crops.domain.model.entities;
 
+import com.integradis.greenhouse.platform.crops.domain.model.aggregates.Crop;
 import com.integradis.greenhouse.platform.crops.domain.model.valueobjects.CropPhase;
 import jakarta.persistence.*;
 
@@ -18,8 +19,8 @@ public class GrowRoomRecord extends CropEntry {
         this.cropPhase = phase;
     }
 
-    public GrowRoomRecord(String author, Long nextItemId, CropPhase phase){
-        super(author, nextItemId);
+    public GrowRoomRecord(String author, Long nextItemId, CropPhase phase, Crop crop){
+        super(author, nextItemId, crop);
         this.cropPhase = phase;
     }
 

@@ -40,11 +40,20 @@ public class Formula extends CropEntry {
 
     public Formula (Crop crop, String author, int hay, int corn, int guano, float cottonSeedCake, int soybeanMeal,
                     float gypsum, int urea, int ammoniumSulphate){
-
+        super(author, 1L, crop);
+        this.cropPhase = CropPhase.FORMULA;
+        this.hay = hay;
+        this.corn = corn;
+        this.guano = guano;
+        this.cottonSeedCake = cottonSeedCake;
+        this.soybeanMeal = soybeanMeal;
+        this.gypsum = gypsum;
+        this.urea = urea;
+        this.ammoniumSulphate = ammoniumSulphate;
     }
 
-    public Formula(String author, Long nextItemId){
-        super(author, nextItemId);
+    public Formula(String author, Long nextItemId, Crop crop){
+        super(author, nextItemId, crop);
         this.cropPhase = CropPhase.FORMULA;
     }
 }

@@ -20,8 +20,8 @@ public class PreparationArea extends CropEntry{
         this.cropPhase = CropPhase.PREPARATION_AREA;
     }
 
-    public PreparationArea(String author, Long nextItemId){
-        super(author, nextItemId);
+    public PreparationArea(String author, Long nextItemId, Crop crop){
+        super(author, nextItemId, crop);
         this.cropPhase = CropPhase.PREPARATION_AREA;
     }
 }

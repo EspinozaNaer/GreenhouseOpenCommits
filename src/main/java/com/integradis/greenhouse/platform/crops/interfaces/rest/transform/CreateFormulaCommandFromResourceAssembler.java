@@ -4,8 +4,8 @@ import com.integradis.greenhouse.platform.crops.domain.model.commands.CreateForm
 import com.integradis.greenhouse.platform.crops.interfaces.rest.resources.CreateFormulaResource;
 
 public class CreateFormulaCommandFromResourceAssembler {
-    public static CreateFormulaCommand toCommandFromResource(Long cropId, CreateFormulaResource resource){
-        return new CreateFormulaCommand(cropId, resource.author(), resource.hay(), resource.corn(),
+    public static CreateFormulaCommand toCommandFromResource(CreateFormulaResource resource){
+        return new CreateFormulaCommand(resource.cropId(), resource.author(), resource.hay(), resource.corn(),
                 resource.guano(), resource.cottonSeedCake(), resource.soybeanMeal(), resource.gypsum(),
                 resource.urea(), resource.ammoniumSulphate());
     }

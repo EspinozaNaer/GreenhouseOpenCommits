@@ -25,8 +25,8 @@ public class Bunker extends CropEntry{
     public Bunker() {
         this.cropPhase = CropPhase.BUNKER;
     }
-    public Bunker(String author, Long nextItemId){
-        super(author, nextItemId);
+    public Bunker(String author, Long nextItemId, Crop crop){
+        super(author, nextItemId, crop);
         this.cropPhase = CropPhase.BUNKER;
     }
 }
