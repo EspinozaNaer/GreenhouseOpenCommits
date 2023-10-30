@@ -1,6 +1,5 @@
 package com.integradis.greenhouse.platform.profiles.domain.model.aggregates;
 
-import com.integradis.greenhouse.platform.profiles.domain.model.valueobjects.CompanyId;
 import com.integradis.greenhouse.platform.profiles.domain.model.valueobjects.Email;
 import com.integradis.greenhouse.platform.profiles.domain.model.valueobjects.EmployeeName;
 import jakarta.persistence.*;
@@ -22,7 +21,7 @@ public class Employee extends AbstractAggregateRoot<Employee> {
 
     @Getter
     @ManyToOne
-    @JoinColumn(name = "company_id")
+    @JoinColumn(name = "company_id", nullable = false)
     private Company company;
 
     @Embedded
