@@ -9,8 +9,11 @@ import java.util.Date;
 
 @Entity
 public class PreparationArea extends CropEntry{
+    @Getter
     private int activities;
+    @Getter
     private int temperature;
+    @Getter
     private String comment;
 
     public PreparationArea() {
