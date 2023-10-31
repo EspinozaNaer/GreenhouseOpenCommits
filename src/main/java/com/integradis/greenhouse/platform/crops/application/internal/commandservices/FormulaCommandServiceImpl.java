@@ -1,7 +1,6 @@
 package com.integradis.greenhouse.platform.crops.application.internal.commandservices;
 
 import com.integradis.greenhouse.platform.crops.domain.exceptions.CropNotFoundException;
-import com.integradis.greenhouse.platform.crops.domain.model.aggregates.Crop;
 import com.integradis.greenhouse.platform.crops.domain.model.commands.CreateFormulaCommand;
 import com.integradis.greenhouse.platform.crops.domain.model.entities.Formula;
 import com.integradis.greenhouse.platform.crops.domain.model.queries.GetCropByIdQuery;
