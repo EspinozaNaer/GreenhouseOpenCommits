@@ -5,7 +5,6 @@ import com.integradis.greenhouse.platform.crops.domain.model.valueobjects.CropPh
 import jakarta.persistence.*;
 import lombok.Getter;
 
-import java.util.Date;
 
 @Entity
 public class Formula extends CropEntry {
@@ -40,7 +39,7 @@ public class Formula extends CropEntry {
 
     public Formula (Crop crop, String author, int hay, int corn, int guano, float cottonSeedCake, int soybeanMeal,
                     float gypsum, int urea, int ammoniumSulphate){
-        super(author, 1L, crop);
+        super(author, null, crop);
         this.cropPhase = CropPhase.FORMULA;
         this.hay = hay;
         this.corn = corn;

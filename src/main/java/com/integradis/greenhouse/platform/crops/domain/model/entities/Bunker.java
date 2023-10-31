@@ -5,7 +5,6 @@ import com.integradis.greenhouse.platform.crops.domain.model.valueobjects.CropPh
 import jakarta.persistence.*;
 import lombok.Getter;
 
-import java.util.Date;
 
 @Entity
 public class Bunker extends CropEntry{
@@ -25,8 +24,16 @@ public class Bunker extends CropEntry{
     public Bunker() {
         this.cropPhase = CropPhase.BUNKER;
     }
-    public Bunker(String author, Long nextItemId, Crop crop){
-        super(author, nextItemId, crop);
+    public Bunker(Crop crop, String author,
+                  int thermocoupleOne, int thermocoupleTwo, int thermocoupleThree,
+                  float averageThermocouple, int motorFrequency, String comment) {
+        super(author, null, crop);
         this.cropPhase = CropPhase.BUNKER;
+        this.thermocoupleOne = thermocoupleOne;
+        this.thermocoupleTwo = thermocoupleTwo;
+        this.thermocoupleThree = thermocoupleThree;
+        this.averageThermocouple = averageThermocouple;
+        this.motorFrequency = motorFrequency;
+        this.comment = comment;
     }
 }

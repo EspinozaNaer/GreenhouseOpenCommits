@@ -19,9 +19,18 @@ public class GrowRoomRecord extends CropEntry {
         this.cropPhase = phase;
     }
 
-    public GrowRoomRecord(String author, Long nextItemId, CropPhase phase, Crop crop){
-        super(author, nextItemId, crop);
+    public GrowRoomRecord(Crop crop, String author, CropPhase phase,
+                          int grow_room, float air_temperature, String compost_temperature, int carbon_dioxide,
+                          int air_humidity, float setting, String comment){
+        super(author, null, crop);
         this.cropPhase = phase;
+        this.grow_room = grow_room;
+        this.air_temperature = air_temperature;
+        this.compost_temperature = compost_temperature;
+        this.carbon_dioxide = carbon_dioxide;
+        this.air_humidity = air_humidity;
+        this.setting = setting;
+        this.comment = comment;
     }
 
     public GrowRoomRecord() {

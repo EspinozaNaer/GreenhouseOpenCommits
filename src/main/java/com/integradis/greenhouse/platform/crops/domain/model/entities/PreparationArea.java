@@ -5,7 +5,6 @@ import com.integradis.greenhouse.platform.crops.domain.model.valueobjects.CropPh
 import jakarta.persistence.*;
 import lombok.Getter;
 
-import java.util.Date;
 
 @Entity
 public class PreparationArea extends CropEntry{
@@ -20,8 +19,12 @@ public class PreparationArea extends CropEntry{
         this.cropPhase = CropPhase.PREPARATION_AREA;
     }
 
-    public PreparationArea(String author, Long nextItemId, Crop crop){
-        super(author, nextItemId, crop);
+    public PreparationArea(Crop crop, String author,
+                           int activities, int temperature, String comment) {
+        super(author, null, crop);
         this.cropPhase = CropPhase.PREPARATION_AREA;
+        this.activities = activities;
+        this.temperature = temperature;
+        this.comment = comment;
     }
 }
