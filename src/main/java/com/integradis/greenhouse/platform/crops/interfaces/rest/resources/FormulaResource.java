@@ -1,7 +1,5 @@
 package com.integradis.greenhouse.platform.crops.interfaces.rest.resources;
 
-import java.time.LocalDate;
-
 public record FormulaResource(
         Long formulaId,
         String author,
@@ -12,6 +10,5 @@ public record FormulaResource(
         int soybeanMeal,
         float gypsum,
         int urea,
-        int ammoniumSulphate,
-        Long cropId) {
+        int ammoniumSulphate) {
 }

@@ -7,6 +7,6 @@ public class FormulaResourceFromEntityAssembler {
     public static FormulaResource toResourceFromEntity(Formula entity){
         return new FormulaResource(entity.getId(), entity.getAuthor(), entity.getHay(), entity.getCorn(),
                 entity.getGuano(), entity.getCottonSeedCake(), entity.getSoybeanMeal(), entity.getGypsum(),
-                entity.getUrea(), entity.getAmmoniumSulphate(), entity.getCrop().getId());
+                entity.getUrea(), entity.getAmmoniumSulphate());
     }
 }

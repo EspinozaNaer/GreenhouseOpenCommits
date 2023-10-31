@@ -4,7 +4,6 @@ import com.integradis.greenhouse.platform.crops.domain.model.aggregates.Crop;
 import com.integradis.greenhouse.platform.crops.domain.model.valueobjects.CropPhase;
 import jakarta.persistence.*;
 import lombok.Getter;
-import org.springframework.cglib.core.Local;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -55,6 +54,10 @@ public class CropEntry {
         this.nextItemId = nextItemId;
         this.crop = crop;
         this.day = date.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+    }
+
+    public String getFormattedCropPhase(){
+        return this.cropPhase.toString().toLowerCase();
     }
 
     public void updateNextItemId(Long nextItemId){
