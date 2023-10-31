@@ -1,4 +1,4 @@
-package com.integradis.greenhouse.platform.profiles.infrastructure.persistence.jpa.repositories.repositories;
+package com.integradis.greenhouse.platform.profiles.infrastructure.persistence.jpa.repositories;
 
 import com.integradis.greenhouse.platform.profiles.domain.model.aggregates.Employee;
 import com.integradis.greenhouse.platform.profiles.domain.model.valueobjects.Email;

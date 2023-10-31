@@ -5,7 +5,7 @@ import com.integradis.greenhouse.platform.profiles.domain.model.queries.GetEmplo
 import com.integradis.greenhouse.platform.profiles.domain.model.queries.GetEmployeeByIdQuery;
 import com.integradis.greenhouse.platform.profiles.domain.model.queries.GetEmployeesByCompanyIdQuery;
 import com.integradis.greenhouse.platform.profiles.domain.services.EmployeeQueryService;
-import com.integradis.greenhouse.platform.profiles.infrastructure.persistence.jpa.repositories.repositories.EmployeeRepository;
+import com.integradis.greenhouse.platform.profiles.infrastructure.persistence.jpa.repositories.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

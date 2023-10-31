@@ -6,7 +6,7 @@ import com.integradis.greenhouse.platform.profiles.domain.model.queries.GetCompa
 import com.integradis.greenhouse.platform.profiles.domain.model.valueobjects.Email;
 import com.integradis.greenhouse.platform.profiles.domain.services.CompanyQueryService;
 import com.integradis.greenhouse.platform.profiles.domain.services.EmployeeCommandService;
-import com.integradis.greenhouse.platform.profiles.infrastructure.persistence.jpa.repositories.repositories.EmployeeRepository;
+import com.integradis.greenhouse.platform.profiles.infrastructure.persistence.jpa.repositories.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
 @Service

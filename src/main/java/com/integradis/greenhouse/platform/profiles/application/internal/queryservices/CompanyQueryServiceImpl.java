@@ -5,7 +5,7 @@ import com.integradis.greenhouse.platform.profiles.domain.model.queries.GetCompa
 import com.integradis.greenhouse.platform.profiles.domain.model.queries.GetCompanyByIdQuery;
 import com.integradis.greenhouse.platform.profiles.domain.model.queries.GetCompanyByTinQuery;
 import com.integradis.greenhouse.platform.profiles.domain.services.CompanyQueryService;
-import com.integradis.greenhouse.platform.profiles.infrastructure.persistence.jpa.repositories.repositories.CompanyRepository;
+import com.integradis.greenhouse.platform.profiles.infrastructure.persistence.jpa.repositories.CompanyRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
